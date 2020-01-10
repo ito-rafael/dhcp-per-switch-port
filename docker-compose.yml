@@ -1,0 +1,13 @@
+version: '2'
+services:
+  dhcpd:
+    restart: always
+    image: lnls/dhcpd
+    container_name: dhcpd
+#    command: ["ens1f1"]
+    command: ["general-data"]
+    volumes:
+#      - /home/con-srv/LA-disk0/repository/docker-dhcpd-composed/data:/data
+      - /home/con-srv/spixconv-dhcp/docker-dhcpd-composed/data:/data
+    network_mode: "host"
+    dns: 10.0.0.71
